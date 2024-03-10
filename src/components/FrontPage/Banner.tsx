@@ -2,6 +2,10 @@ import CardStack from "./CardStack"
 import BannerActions from "./BannerActions"
 import PaymentLogos from "./PaymentLogos"
 
+import { Button } from "../ui/button";
+
+import { FaArrowDown } from "react-icons/fa";
+
 export default function Banner() {
     return (
         <div className="h-screen w-full relative">
@@ -21,6 +25,9 @@ export default function Banner() {
             </div>
             <BannerActions />
             <PaymentLogos />
+            <Button variant={"icon"} size={"icon"} className="w-[54px] h-[54px] absolute bottom-2 left-1/2 -translate-x-1/2">
+                <FaArrowDown />
+            </Button>
         </div>
     )
 }

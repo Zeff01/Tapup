@@ -18,6 +18,7 @@ module.exports = {
       },
     },
     extend: {
+      
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,14 +47,16 @@ module.exports = {
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
+            foreground: "hsl(var(--popover-foreground))",
+          },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
         customGreen: "#22C55E",
-        customBlack: "#1E1E1E"
+        customBlack: '#1e1e1e',
+        customGray: '#ededed',
+        customTextGray: '#454545'
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,6 +76,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      width: {
+        showcase: "calc(100% - 50px)"
       },
     },
   },

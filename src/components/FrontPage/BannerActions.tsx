@@ -7,7 +7,7 @@ export default function BannerActions() {
                 <h2 className="text-customGreen text-3xl font-[500] tracking-[-2px]">
                     Tap to Connect
                 </h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                <p className="text-customTextGray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
             </div>
             <div className="flex flex-row gap-x-2">
                 <Button>Get a card</Button>

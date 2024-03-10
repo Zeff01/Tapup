@@ -18,6 +18,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        icon: "rounded-full bg-customGreen text-white"
       },
       size: {
         default: "h-10 px-8 py-3",
@@ -39,6 +40,12 @@ export interface ButtonProps
   asChild?: boolean
 }
 
+/**
+ * 
+ @description to do a round icon, add this to the props
+ (variant="icon" size="icon")
+ * 
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
