@@ -74,7 +74,7 @@ function ShoppingCard({image, name, price, description, total}:ShoppingCardProps
         <div>
             <p className="font-[600] text-[20px]">{name}</p>
             <div>
-                <img src={image} />
+                <img src={image} width={300}  />
             </div>
             <div className="flex flex-col gap-2">
                 <div className="flex flex-row items-center justify-between w-[200px] font-[600]">
