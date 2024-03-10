@@ -1,22 +1,24 @@
-// import icon from './icon.png'
+import { Link } from "react-router-dom"
+
 export default function Navbar() {
     return (
-        <nav className="border-b">
+        <nav className="border-b flex flex-row justify-between">
             <div className="flex flex-row gap-4 items-center">
-                <a>
+                <Link to={'/'}>
                     <img src='./icon.png' className="scale-50"/>
-                </a>
-                <a>
+                </Link>
+                <Link to={'/'}>
                     <span>Tap</span>
                     <span className="font-roboto">Up</span>
-                </a>
+                </Link>
             </div>  
-            <div>
-                <a className="">About</a>
-                <a>Services</a>
-                <a>Testimonials</a>
-                <div>
-
+            <div className="flex flex-row items-center gap-8 pr-8">
+                <Link  to={'/about'}>About</Link>
+                <Link to={'/services'}>Services</Link>
+                <Link to={'/testimonials'}>Testimonials</Link>
+                <div className="flex flex-row gap-2">
+                    <button>login</button>
+                    <button>activate</button>
                 </div>
             </div>          
         </nav>
