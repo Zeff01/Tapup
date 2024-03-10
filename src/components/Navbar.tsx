@@ -17,8 +17,8 @@ export default function Navbar() {
                 <Link to={'/services'}>Services</Link>
                 <Link to={'/testimonials'}>Testimonials</Link>
                 <div className="flex flex-row gap-2">
-                    <button>login</button>
-                    <button>activate</button>
+                    <Link to={'/login'}>login</Link>
+                    <Link to={'/activate'}>activate</Link>
                 </div>
             </div>          
         </nav>
