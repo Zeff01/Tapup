@@ -2,6 +2,7 @@ import Banner from "@/components/FrontPage/Banner"
 import Showcase from "@/components/FrontPage/Showcase"
 import ShoppingCard from "@/components/FrontPage/ShoppingCards"
 import Details from "@/components/FrontPage/Details"
+import CustomCardBanner from "@/components/FrontPage/CustomCardBanner"
 
 // TODO: hex color of the circle
 export default function FrontPage() {
@@ -11,6 +12,7 @@ export default function FrontPage() {
             <Showcase />
             <ShoppingCard />
             <Details />
+            <CustomCardBanner />
         </div>
     )
 }
