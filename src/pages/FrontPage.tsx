@@ -1,9 +1,9 @@
-import Banner from "@/components/Banner"
+import Banner from "@/components/FrontPage/Banner"
 
 // TODO: hex color of the circle
 export default function FrontPage() {
     return (
-        <div className="w-screen overflow-x-hidden relative">
+        <div className="w-screen relative">
             <Banner />
         </div>
     )

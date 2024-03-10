@@ -2,9 +2,9 @@ import { Link } from "react-router-dom"
 
 export default function Navbar() {
     return (
-        <nav className="border-b flex flex-row justify-between text-lg font-bold">
+        <nav className="border-b flex flex-row justify-between text-lg font-bold py-3">
             <Link to={'/'} className="flex flex-row items-center">
-                <img src='./icon.png' className="scale-50" />
+                <img src='./icon.svg' className="scale-50" />
                 <p className="py-2 flex flex-row gap-1">
                     <span >Tap</span>
                     <span className="text-customGreen">Up</span>
