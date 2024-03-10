@@ -1,5 +1,6 @@
 import Banner from "@/components/FrontPage/Banner"
 import Showcase from "@/components/FrontPage/Showcase"
+import ShoppingCard from "@/components/FrontPage/ShoppingCards"
 
 // TODO: hex color of the circle
 export default function FrontPage() {
@@ -7,6 +8,7 @@ export default function FrontPage() {
         <div className="w-screen relative">
             <Banner />
             <Showcase />
+            <ShoppingCard />
         </div>
     )
 }

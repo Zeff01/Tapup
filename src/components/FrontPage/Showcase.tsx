@@ -1,6 +1,6 @@
 export default function Showcase() {
     return (
-        <section className="py-52 flex justify-end">            
+        <section className="pt-52 py-28 flex justify-end">            
             <div className="bg-customGray rounded-tl-[20px] rounded-bl-[20px] h-[350px] w-showcase relative flex flex-col justify-end p-16 px-48">
                 <img src="./black-card-forward.svg" width={350} className=" absolute right-[440px] -top-[0] -translate-y-1/2" />     
                 <img src="./chrome-card-forward.svg"  width={350} className="scale-95 -translate-y-[53%] absolute right-[50px] top-0"  />
