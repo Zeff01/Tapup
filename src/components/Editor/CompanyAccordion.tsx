@@ -1,4 +1,4 @@
-import { FaRegUser } from "react-icons/fa6";
+import { BsBuildings } from "react-icons/bs";
 import { Input } from "../ui/input";
 
 import {
@@ -22,7 +22,7 @@ export default function CompanyAccordion() {
                 <AccordionTrigger>
                     <p className="flex flex-row items-center gap-6">
                         <span className="text-[#b4b4b4]">
-                        <FaRegUser />
+                        <BsBuildings />
                         </span>
                         <span>Company</span>
                     </p>
