@@ -51,12 +51,15 @@ export default function CoverAccordion() {
                     
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
+                    <label className="relative w-full h-full">
+                    <p  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Choose File</p>
                     <Input
                     type="file"
                     accept="image/png, image/jpeg"                    
                     onChange={changeCoverHandler}
-                    className="focus:outline-none bg-gray-100"
+                    className="invisible"
                     />
+                    </label>
                 </AccordionContent>
             </AccordionItem>
         </Accordion>

@@ -1,7 +1,18 @@
 
 import { create } from 'zustand'
 
-export type CustomFont = "font-roboto-condensed"|"font-racing-sans-one"|"font-league-spartan"
+export type CustomFont = (
+    "font-roboto-condensed"|
+    "font-racing-sans-one"|
+    "font-league-spartan"|
+    "font-montserrat"|
+    "font-open-sans"|
+    "font-raleway"|
+    "font-bebas"|
+    "font-lato"|
+    "font-kaushan"|
+    "font-comic-neue"
+)
 export type Social = {
     socialType: string;
     socialValue: string;

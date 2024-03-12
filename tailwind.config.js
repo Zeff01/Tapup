@@ -84,7 +84,14 @@ module.exports = {
         "racing-sans-one": "Racing Sans One",
         "roboto-condensed": "Roboto Condensed",
         "league-spartan": "League Spartan",
-        "roboto-mono": "Roboto Mono"
+        "roboto-mono": "Roboto Mono",
+        "montserrat": "Montserrat",
+        "open-sans": "Open Sans",
+        "raleway": "Raleway",
+        "bebas": "Bebas Neue",
+        "lato": "Lato",
+        "kaushan": "Kaushan Script",
+        "comic-neue": "Comic Neue, cursive"
       }
     },
   },

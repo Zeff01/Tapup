@@ -51,12 +51,15 @@ export default function ProfileImageAccordion() {
                     
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
-                    <Input 
-                    type="file"
-                    accept="image/png, image/jpeg"                    
-                    onChange={changeProfileHandler}
-                    className="focus:outline-none bg-gray-100"
-                    />
+                    <label className="relative w-full h-full">
+                        <p  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Choose File</p>
+                        <Input 
+                        type="file"
+                        accept="image/png, image/jpeg, image/svg"                    
+                        onChange={changeProfileHandler}
+                        className="invisible"
+                        />
+                    </label>
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
