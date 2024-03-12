@@ -12,7 +12,9 @@ type State = {
     name: string;
     position: string;
     company: string;
-    socials: Social[]
+    socials: Social[];
+    coverURL: string;
+    profileURL: string; 
 }
 
 type Action = {
@@ -22,6 +24,8 @@ type Action = {
     changeCompany(newCompany: string) :   void;
     addSocial(socialType:string, socialValue:string) : void;
     removeSocial(socialType:string) : void;
+    changeCover(newImg:string) : void;
+    changeProfile(newImg: string) : void;
 }
 
 const INITIAL_VALUES = {
@@ -29,6 +33,8 @@ const INITIAL_VALUES = {
     name: 'Tony Stark',
     position: 'CEO',
     company: 'Stark Industries',
+    coverURL: '',
+    profileURL: ''
 } as const
 
 export const useCustomCard = create<State & Action>((set) => ({
@@ -37,23 +43,21 @@ export const useCustomCard = create<State & Action>((set) => ({
     position: INITIAL_VALUES.position,
     company: INITIAL_VALUES.company,
     socials: [],
+    coverURL: INITIAL_VALUES.coverURL,
+    profileURL: INITIAL_VALUES.profileURL,
 
     changeName: (newName: string) => set(() => ({name: newName})),
     changeCustomFont: (newFont:CustomFont) => set(() => ({customFont: newFont})),
     changePosition: (newPosition: string) => set(() => ({position: newPosition})),
     changeCompany: (newCompany: string) => set(() => ({company: newCompany})),
-    addSocial: (socialType:string, socialValue:string) => set((state) => {
+    addSocial: (socialType:string, socialValue:string) => set((state) => (
+        state.socials.find(s => s.socialType === socialType) ?
         // social already exist, overwrite it
-        if (state.socials.find(s => s.socialType === socialType)) {
-            return {
-                socials: state.socials.map(s  => s.socialType === socialType ? {...s, socialValue} : s)
-            }
-        }
+        {socials: state.socials.map(s => s.socialType === socialType ? {...s, socialValue}: s)}:
         // new social add a new one
-        return {
-            socials: [...state.socials, {socialType, socialValue}]
-        }
-    }),
-    removeSocial: (socialType: string) => set((state) => ({socials: state.socials.filter(s => s.socialType !== socialType)}))    
-    
+        {socials: [...state.socials, {socialType, socialValue}]}
+    )),
+    removeSocial: (socialType: string) => set((state) => ({socials: state.socials.filter(s => s.socialType !== socialType)})),
+    changeCover: (newImg: string) => set(() => ({coverURL: newImg})),
+    changeProfile: (newImg: string) => set(() => ({profileURL: newImg}))
 }))

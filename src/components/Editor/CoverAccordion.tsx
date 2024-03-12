@@ -7,11 +7,36 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { useCustomCard } from "@/hooks/useCustomCard";
+import { ChangeEvent } from "react";
+
+
 
 
 // TODO: complete this
 export default function CoverAccordion() {
-    
+    const changeCover = useCustomCard(s => s.changeCover)
+
+    function changeCoverHandler(e: ChangeEvent<HTMLInputElement>) {
+        const val : FileList|null = e.currentTarget.files
+        if (val) {
+            const file = val[0]
+            if (file && file.size > 5_000_000) {
+                console.error('file too large!')
+            }
+            if (file) {
+                console.log(file.type)
+                const reader =  new FileReader()
+                reader.onload = event => {
+                    const fileAsDataURL = event.target?.result
+                    if (typeof fileAsDataURL === 'string') {
+                        changeCover(fileAsDataURL)
+                    }
+                }
+                reader.readAsDataURL(file)
+            }
+        }    
+    }
 
     return (
         <Accordion type="single" collapsible>
@@ -26,10 +51,10 @@ export default function CoverAccordion() {
                     
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
-                    <Input 
+                    <Input
                     type="file"
                     accept="image/png, image/jpeg"                    
-                    // onChange={(e) => changeCompany(e.currentTarget.value)}
+                    onChange={changeCoverHandler}
                     className="focus:outline-none bg-gray-100"
                     />
                 </AccordionContent>

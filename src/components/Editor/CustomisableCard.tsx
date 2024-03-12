@@ -7,18 +7,23 @@ export  default function CustomisableCard() {
     const position = useCustomCard(s => s.position)
     const company = useCustomCard(s => s.company)
     const socials = useCustomCard(s => s.socials)
+    const coverURL = useCustomCard(s => s.coverURL)
+    const profileURL = useCustomCard(s => s.profileURL)
+
+    const background =  coverURL ? '' : 'bg-gray-200'
+    const profile = profileURL ? '' : 'bg-blue-300'
 
     return (
         <div className={`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl overflow-hidden`}>  
             {/* cover */}
-            <div className="bg-gray-200 flex-grow"></div>
+            <div className={`${background} flex-grow`} style={{background: `url("${coverURL}")`,}}></div>
             {/* details */}
             <div className="h-[40%] px-8 flex flex-row justify-between">
                 {/* left side */}
                 <div className="relative pl-8">
                 {/* profile pic */}
                     <div className="absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white rounded-full overflow-hidden">
-                        <div className="w-full h-full bg-blue-300"></div>
+                        <div className={`w-full h-full ${profile}`} style={{background: `url("${profileURL}")`,}}></div>
                     </div>
                     {/* infos */}
                     <div className="pt-[90px]">
