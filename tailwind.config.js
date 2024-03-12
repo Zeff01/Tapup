@@ -80,6 +80,12 @@ module.exports = {
       width: {
         showcase: "calc(100% - 50px)"
       },
+      fontFamily: {
+        "racing-sans-one": "Racing Sans One",
+        "roboto-condensed": "Roboto Condensed",
+        "league-spartan": "League Spartan",
+        "roboto-mono": "Roboto Mono"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
