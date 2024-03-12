@@ -20,7 +20,7 @@ export default function CompanyAccordion() {
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
                 <AccordionTrigger>
-                    <p className="flex flex-row items-center gap-6">
+                    <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                         <BsBuildings />
                         </span>

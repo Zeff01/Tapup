@@ -1,6 +1,5 @@
-import { FaRegUser } from "react-icons/fa6";
-import { IoBriefcaseOutline } from "react-icons/io5";
 import { Input } from "../ui/input";
+import { CgProfile } from "react-icons/cg";
 
 import {
     Accordion,
@@ -8,14 +7,11 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { useCustomCard } from "@/hooks/useCustomCard";
 
 
-
-export default function PositionAccordion() {
+// TODO: complete this
+export default function ProfileImageAccordion() {
     
-    const changePosition = useCustomCard(s => s.changePosition)
-    const position = useCustomCard(s => s.position)
 
     return (
         <Accordion type="single" collapsible>
@@ -23,16 +19,17 @@ export default function PositionAccordion() {
                 <AccordionTrigger>
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
-                        <IoBriefcaseOutline />
+                            <CgProfile />
                         </span>
-                        <span>Position</span>
+                        <span className="text-sm">Profile Image</span>
                     </p>
                     
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
                     <Input 
-                    type="text" value={position} 
-                    onChange={(e) => changePosition(e.currentTarget.value)}
+                    type="file"
+                    accept="image/png, image/jpeg"                    
+                    // onChange={(e) => changeCompany(e.currentTarget.value)}
                     className="focus:outline-none bg-gray-100"
                     />
                 </AccordionContent>
