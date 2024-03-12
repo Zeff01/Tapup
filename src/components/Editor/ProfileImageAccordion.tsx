@@ -15,6 +15,7 @@ import { useCustomCard } from "@/hooks/useCustomCard";
 export default function ProfileImageAccordion() {
     
     const changeProfile = useCustomCard(s => s.changeProfile)
+    
 
     function changeProfileHandler(e: ChangeEvent<HTMLInputElement>) {
         const val : FileList|null = e.currentTarget.files

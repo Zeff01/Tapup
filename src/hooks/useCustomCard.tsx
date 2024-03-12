@@ -9,44 +9,59 @@ export type Social = {
 
 type State = {
     customFont: CustomFont;
+    fontColor: string;
+    backgroundColor: string;
     name: string;
     position: string;
     company: string;
     socials: Social[];
     coverURL: string;
     profileURL: string; 
+    address: string;
 }
 
 type Action = {
     changeCustomFont(newFont:CustomFont) : void;
+    changeFontColor(newColor: string) : void;
+    changeBackgroundColor(newColor:string) : void;
     changeName(newName: string) : void;
     changePosition(newPosition: string) :   void;
     changeCompany(newCompany: string) :   void;
     addSocial(socialType:string, socialValue:string) : void;
     removeSocial(socialType:string) : void;
     changeCover(newImg:string) : void;
-    changeProfile(newImg: string) : void;
+    changeProfile(newImg: string) : void;    
+    changeAddress(newAdress: string) : void;
 }
 
 const INITIAL_VALUES = {
-    font: 'font-roboto-condensed',
+    font: 'font-roboto-condensed', // TODO: adjust this
+    fontColor: '#000000',
+    backgroundColor: '#ffffff',
     name: 'Tony Stark',
     position: 'CEO',
     company: 'Stark Industries',
     coverURL: '',
-    profileURL: ''
+    profileURL: '',
+    address: 'Forrest Ray 191-103 Integer Rd. Corona New Mexico'
+
 } as const
 
 export const useCustomCard = create<State & Action>((set) => ({
     customFont: INITIAL_VALUES.font,
+    fontColor: INITIAL_VALUES.fontColor,
+    backgroundColor: INITIAL_VALUES.backgroundColor,
     name: INITIAL_VALUES.name,
     position: INITIAL_VALUES.position,
     company: INITIAL_VALUES.company,
     socials: [],
     coverURL: INITIAL_VALUES.coverURL,
     profileURL: INITIAL_VALUES.profileURL,
+    address: INITIAL_VALUES.address,
 
     changeName: (newName: string) => set(() => ({name: newName})),
+    changeFontColor: (newColor: string) => set(() => ({fontColor:newColor})),
+    changeBackgroundColor: (newColor: string) => set(() => ({backgroundColor:newColor})),
     changeCustomFont: (newFont:CustomFont) => set(() => ({customFont: newFont})),
     changePosition: (newPosition: string) => set(() => ({position: newPosition})),
     changeCompany: (newCompany: string) => set(() => ({company: newCompany})),
@@ -59,5 +74,6 @@ export const useCustomCard = create<State & Action>((set) => ({
     )),
     removeSocial: (socialType: string) => set((state) => ({socials: state.socials.filter(s => s.socialType !== socialType)})),
     changeCover: (newImg: string) => set(() => ({coverURL: newImg})),
-    changeProfile: (newImg: string) => set(() => ({profileURL: newImg}))
+    changeProfile: (newImg: string) => set(() => ({profileURL: newImg})),
+    changeAddress: (newAddress: string) => set(() => ({address: newAddress}))
 }))

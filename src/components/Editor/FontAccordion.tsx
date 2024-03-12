@@ -27,7 +27,7 @@ const contents = [
     }
 ] as const
 
-export default function TextAccordion() {
+export default function FontAccordion() {
     
     const changeCustomFont = useCustomCard(s => s.changeCustomFont)
 
@@ -39,7 +39,7 @@ export default function TextAccordion() {
                         <span className="text-[#b4b4b4]">
                             <RiFontSize />
                         </span>
-                        <span>Font</span>
+                        <span>Font Style</span>
                     </p>
                     
                 </AccordionTrigger>
