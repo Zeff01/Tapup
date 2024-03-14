@@ -9,13 +9,14 @@ import {
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
 import { ChangeEvent } from "react";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 
 
 // TODO: complete this
 export default function CoverAccordion() {
     const changeCover = useCustomCard(s => s.changeCover)
+    const hoverHandler = elementOutlineHandler('c-cover', 2)
 
     function changeCoverHandler(e: ChangeEvent<HTMLInputElement>) {
         const val : FileList|null = e.currentTarget.files
@@ -41,7 +42,9 @@ export default function CoverAccordion() {
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                             <SlPicture />

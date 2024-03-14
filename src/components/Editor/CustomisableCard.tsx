@@ -20,38 +20,38 @@ export  default function CustomisableCard() {
     const profile = profileURL ? '' : 'bg-blue-300'
 
     return (
-        <div className={`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl overflow-hidden`}>  
+        <div className={`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl`}>  
             {/* cover */}
-            <div className={`${background} flex-grow`} style={coverURL? {background: `url("${coverURL}")`, backgroundSize:'cover'}: {}}></div>
+            <div className={`c-cover ${background} flex-grow`} style={coverURL? {background: `url("${coverURL}")`, backgroundSize:'cover'}: {}}></div>
             {/* details */}
-            <div className="h-[40%] px-8 flex flex-row justify-between" style={{backgroundColor}}>
+            <div className="c-background h-[40%] px-8 flex flex-row justify-between" style={{backgroundColor}}>
                 {/* left side */}
                 <div className="relative pl-8">
                 {/* profile pic */}
-                    <div className="absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white rounded-full overflow-hidden">
-                        <div className={`w-full h-full ${profile}`} style={profileURL? {background: `url("${profileURL}")`, backgroundSize:'cover'}: {}}></div>
+                    <div className="c-profile absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white rounded-full overflow-hidden">
+                        <div className={` w-full h-full ${profile}`} style={profileURL? {background: `url("${profileURL}")`, backgroundSize:'cover'}: {}}></div>
                     </div>
                     {/* infos */}
-                    <div className="pt-[75px] max-w-[400px]">
+                    <div className="pt-[75px] max-w-[400px] c-text-color c-font">
                         {/* name */}
-                        <p className={`c-name font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
+                        <p className={`c-name  font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
                         {/* position */}
-                        <p className={`c-position font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
+                        <p className={`c-position  font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
                         {/* company */}
-                        <p className={`c-company ${customFont}`} style={{color: fontColor}}>{company}</p>
+                        <p className={`c-company  ${customFont}`} style={{color: fontColor}}>{company}</p>
                         {/* address */}
-                        <p className={`c-address ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
+                        <p className={`c-address  ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
                     </div>
                 </div>
                 {/* right sides */}
-                <div className="flex flex-row-reverse flex-wrap h-fit w-[250px] pt-4 gap-2">
+                <div className="c-icons flex flex-row-reverse flex-wrap h-fit w-[250px] pt-4 gap-2">
                     {/* contact infos */}
                     {socials.map(({socialType}) => {
                         const SocialIcon = SocialLists.find(s => s.type === socialType)!.icon as JSX.Element
                         return (
                             <div 
                             key={socialType} 
-                            className={`w-fit h-fit aspect-square text-2xl p-2 rounded-sm shadow-sm`}
+                            className={`c-icon w-fit h-fit aspect-square text-2xl p-2 rounded-sm shadow-sm`}
                             style={{
                                 color: iconColor,
                                 backgroundColor: iconBackground

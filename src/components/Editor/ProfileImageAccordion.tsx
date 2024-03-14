@@ -9,12 +9,13 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 // TODO: complete this
 export default function ProfileImageAccordion() {
     
     const changeProfile = useCustomCard(s => s.changeProfile)
+    const hoverHandler = elementOutlineHandler('c-profile')
     
 
     function changeProfileHandler(e: ChangeEvent<HTMLInputElement>) {
@@ -41,7 +42,9 @@ export default function ProfileImageAccordion() {
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                             <CgProfile />

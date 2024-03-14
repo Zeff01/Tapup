@@ -46,7 +46,7 @@ export default function Sidebar() {
             onClick={() => scrollToAccordion('background')}
             >
                 <svg width="30" height="30" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 5.10938L5 1.10938M11 1.10938L1 11.1094M1 17.1094L17 1.10938M17 7.10938L7 17.1094M17 13.1094L13 17.1094" stroke={location.search.includes('background')? '#22c55e':'#b4b4b4'} stroke-opacity="0.49" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 5.10938L5 1.10938M11 1.10938L1 11.1094M1 17.1094L17 1.10938M17 7.10938L7 17.1094M17 13.1094L13 17.1094" stroke={location.search.includes('background')? '#22c55e':'#b4b4b4'} strokeOpacity="0.49" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             </NavLink>
             <NavLink to="?scroll=contacts" className="p-3 text-3xl hover:bg-gray-100 rounded-md transition-all duration-150"

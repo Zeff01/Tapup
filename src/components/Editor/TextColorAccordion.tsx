@@ -8,17 +8,20 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 export default function TextColorAccordion() {
     
     const fontColor = useCustomCard(s => s.fontColor)
     const changeColor = useCustomCard(s => s.changeFontColor)
+    const hoverHandler =  elementOutlineHandler('c-text-color')
 
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                         <IoIosColorPalette />

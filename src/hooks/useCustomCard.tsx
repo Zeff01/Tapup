@@ -60,8 +60,8 @@ const INITIAL_VALUES = {
     coverURL: '',
     profileURL: '',
     address: 'Forrest Ray 191-103 Integer Rd. Corona New Mexico',
-    iconColor: '#E5E7E1',
-    iconBackground: '#7b7b7b',
+    iconColor: '#7b7b7b',
+    iconBackground: '#E5E7E1',
 
 } as const
 

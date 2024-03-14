@@ -8,17 +8,20 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 export default function BackgroundColorAccordion() {
     
     const backgroundColor = useCustomCard(s => s.backgroundColor)
     const changeBackgroundColor = useCustomCard(s => s.changeBackgroundColor)
+    const hoverHandler = elementOutlineHandler('c-background')
 
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                         <IoIosColorPalette />

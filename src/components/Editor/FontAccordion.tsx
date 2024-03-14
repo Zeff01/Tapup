@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion"
 import { Button } from "../ui/button";
 import { useCustomCard } from "@/hooks/useCustomCard";
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 
 
@@ -58,11 +59,14 @@ const contents = [
 export default function FontAccordion() {
     
     const changeCustomFont = useCustomCard(s => s.changeCustomFont)
+    const hoverHandler =  elementOutlineHandler('c-font')
 
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}                
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                             <RiFontSize />

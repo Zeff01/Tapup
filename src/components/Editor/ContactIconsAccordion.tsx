@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
 import { Button } from "../ui/button";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 
 // TODO: complete this
@@ -31,11 +31,14 @@ export default function ContactIconsAccordions() {
     const removeSocial = useCustomCard(s => s.removeSocial)
 
     const inputRef = useRef<HTMLInputElement>(null)
+    const hoverHandler = elementOutlineHandler('c-icons')
 
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandler}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                             <RiContactsBookLine />
