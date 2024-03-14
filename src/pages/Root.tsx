@@ -1,10 +1,15 @@
 import Navbar from "@/components/Common/Navbar"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 
 export default function Root() {
+    const location = useLocation()
+    
     return (
         <div className="w-full overflow-x-hidden">
-            <Navbar />
+            {
+                !location.pathname.includes('/edit') && // temporary
+                <Navbar />
+            }
             <Outlet />
         </div>
     )

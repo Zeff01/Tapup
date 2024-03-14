@@ -12,6 +12,8 @@ export  default function CustomisableCard() {
     const profileURL = useCustomCard(s => s.profileURL)
     const fontColor = useCustomCard(s => s.fontColor)
     const backgroundColor = useCustomCard(s =>  s.backgroundColor)
+    const iconColor = useCustomCard(s =>  s.iconColor)
+    const iconBackground = useCustomCard(s =>  s.iconBackground)
 
     const background =  coverURL ? '' : 'bg-gray-200'
     const profile = profileURL ? '' : 'bg-blue-300'
@@ -46,7 +48,14 @@ export  default function CustomisableCard() {
                     {socials.map(({socialType}) => {
                         const SocialIcon = SocialLists.find(s => s.type === socialType)!.icon as JSX.Element
                         return (
-                            <div key={socialType} className={`w-fit h-fit aspect-square bg-gray-200 text-[#7b7b7b] text-2xl p-2 rounded-sm shadow-sm`}>
+                            <div 
+                            key={socialType} 
+                            className={`w-fit h-fit aspect-square text-2xl p-2 rounded-sm shadow-sm`}
+                            style={{
+                                color: iconColor,
+                                backgroundColor: iconBackground
+                            }}
+                            >
                                 {SocialIcon}
                             </div>
                         )

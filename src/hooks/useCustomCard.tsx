@@ -29,6 +29,8 @@ type State = {
     coverURL: string;
     profileURL: string; 
     address: string;
+    iconColor: string;
+    iconBackground: string;
 }
 
 type Action = {
@@ -43,6 +45,9 @@ type Action = {
     changeCover(newImg:string) : void;
     changeProfile(newImg: string) : void;    
     changeAddress(newAdress: string) : void;
+    changeIconColor(newValue: string) : void;
+    changeIconBackground(newValue: string) : void;
+    
 }
 
 const INITIAL_VALUES = {
@@ -54,7 +59,9 @@ const INITIAL_VALUES = {
     company: 'Stark Industries',
     coverURL: '',
     profileURL: '',
-    address: 'Forrest Ray 191-103 Integer Rd. Corona New Mexico'
+    address: 'Forrest Ray 191-103 Integer Rd. Corona New Mexico',
+    iconColor: '#E5E7E1',
+    iconBackground: '#7b7b7b',
 
 } as const
 
@@ -69,6 +76,8 @@ export const useCustomCard = create<State & Action>((set) => ({
     coverURL: INITIAL_VALUES.coverURL,
     profileURL: INITIAL_VALUES.profileURL,
     address: INITIAL_VALUES.address,
+    iconColor: INITIAL_VALUES.iconColor,
+    iconBackground: INITIAL_VALUES.iconBackground,
 
     changeName: (newName: string) => set(() => ({name: newName})),
     changeFontColor: (newColor: string) => set(() => ({fontColor:newColor})),
@@ -86,5 +95,7 @@ export const useCustomCard = create<State & Action>((set) => ({
     removeSocial: (socialType: string) => set((state) => ({socials: state.socials.filter(s => s.socialType !== socialType)})),
     changeCover: (newImg: string) => set(() => ({coverURL: newImg})),
     changeProfile: (newImg: string) => set(() => ({profileURL: newImg})),
-    changeAddress: (newAddress: string) => set(() => ({address: newAddress}))
+    changeAddress: (newAddress: string) => set(() => ({address: newAddress})),
+    changeIconColor: (newValue: string) => set(() => ({iconColor: newValue})),
+    changeIconBackground: (newValue: string) => set(() => ({iconBackground: newValue})),
 }))
