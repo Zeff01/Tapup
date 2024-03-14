@@ -1,0 +1,4 @@
+p, div, section {
+    transition: all;
+    transition-duration: 100ms;
+}

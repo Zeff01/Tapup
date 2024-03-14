@@ -8,18 +8,21 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 
 export default function PositionAccordion() {
     
     const changePosition = useCustomCard(s => s.changePosition)
     const position = useCustomCard(s => s.position)
+    const hoverHandlers = elementOutlineHandler('c-position')
 
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandlers}
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                         <IoBriefcaseOutline />

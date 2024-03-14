@@ -1,3 +1,4 @@
+import './customCardStyles.css'
 import { useCustomCard } from "@/hooks/useCustomCard"
 import { SocialLists } from "@/lib/SOCIAL_ICONS"
 
@@ -33,13 +34,13 @@ export  default function CustomisableCard() {
                     {/* infos */}
                     <div className="pt-[75px] max-w-[400px]">
                         {/* name */}
-                        <p className={`font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
+                        <p className={`c-name font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
                         {/* position */}
-                        <p className={`font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
+                        <p className={`c-position font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
                         {/* company */}
-                        <p className={` ${customFont}`} style={{color: fontColor}}>{company}</p>
+                        <p className={`c-company ${customFont}`} style={{color: fontColor}}>{company}</p>
                         {/* address */}
-                        <p className={` ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
+                        <p className={`c-address ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
                     </div>
                 </div>
                 {/* right sides */}

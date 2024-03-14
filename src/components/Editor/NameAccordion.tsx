@@ -8,7 +8,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
-
+import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
 
 
 export default function NameAccordion() {
@@ -16,10 +16,14 @@ export default function NameAccordion() {
     const changeName = useCustomCard(s => s.changeName)
     const name = useCustomCard(s => s.name)
 
+    const hoverHandlers = elementOutlineHandler('c-name')
+
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-                <AccordionTrigger>
+                <AccordionTrigger
+                {...hoverHandlers} 
+                >
                     <p className="flex flex-row items-center gap-4">
                         <span className="text-[#b4b4b4]">
                         <FaRegUser />
