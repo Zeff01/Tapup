@@ -31,8 +31,9 @@ export  default function CustomisableCard() {
                     <div className="c-profile absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white rounded-full overflow-hidden">
                         <div className={` w-full h-full ${profile}`} style={profileURL? {background: `url("${profileURL}")`, backgroundSize:'cover'}: {}}></div>
                     </div>
+                    <div className='pt-[75px]'>
                     {/* infos */}
-                    <div className="pt-[75px] max-w-[400px] c-text-color c-font">
+                    <div className="max-w-[400px] c-text-color c-font">
                         {/* name */}
                         <p className={`c-name  font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
                         {/* position */}
@@ -42,9 +43,11 @@ export  default function CustomisableCard() {
                         {/* address */}
                         <p className={`c-address  ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
                     </div>
+                    </div>
                 </div>
                 {/* right sides */}
-                <div className="c-icons flex flex-row-reverse flex-wrap h-fit w-[250px] pt-4 gap-2">
+                <div className='pt-4'>
+                <div className="c-icons flex flex-row-reverse flex-wrap h-fit w-[250px] gap-2">
                     {/* contact infos */}
                     {socials.map(({socialType}) => {
                         const SocialIcon = SocialLists.find(s => s.type === socialType)!.icon as JSX.Element
@@ -61,6 +64,7 @@ export  default function CustomisableCard() {
                             </div>
                         )
                     })}
+                </div>
                 </div>
             </div>
         </div>
