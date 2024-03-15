@@ -9,7 +9,7 @@ import ReactCrop, {
   makeAspectCrop,
   Crop,
   PixelCrop,
-  convertToPixelCrop,
+//   convertToPixelCrop,
 } from 'react-image-crop'
 import { canvasPreview } from '@/lib/canvasPreview'
 import { useDebounceEffect } from '@/hooks/useDebounceEffect'
@@ -61,7 +61,7 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
     if (e.target.files && e.target.files.length > 0) {
       setCrop(undefined) // Makes crop preview update between images.
       setFileName(e.target.files[0].name)
-      toggleModal()
+    //   toggleModal()
       const reader = new FileReader()
       reader.addEventListener('load', () => {
           setImgSrc(reader.result?.toString() || '')
@@ -180,7 +180,9 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
 
   return (
     <div className="cropper">
-        <Input type="file" accept="image/*" onChange={onSelectFile} className='invisible' />
+        <Input type="file" accept="image/*" onChange={onSelectFile} className='invisible'        
+        onClick={toggleModal}
+        />
 
 
         {
@@ -188,14 +190,13 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                 <>
                 <div className='z-10 fixed top-0 right-0 w-screen h-screen'>
                     <div className='z-20 w-full h-full bg-black opacity-80' />
-                    <div className='z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-full bg-white flex flex-col items-center gap-y-4 overflow-y-scroll'>
-                        <div className="Crop-Controls">
+                    <div className='z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-full bg-white flex flex-col items-center gap-y-8 overflow-y-scroll  justify-between'>
+                        <div className="pt-8 w-full flex flex-col items-center">
                             {/* <input type="file" accept="image/*" onChange={onSelectFile} /> */}
-                            <div>
-                            </div>
-                            <div className='w-[200px]'>
-                                <label htmlFor='scale'>Zoom</label>
-                                <div className='flex flex-row items-center gap-2'>   
+                            <div className='w-[400px] flex flex-col items-center gap-y-2'>
+                                <p className='pb-4 font-bold text-2xl'>Select the Image</p>
+                                <label htmlFor='scale' className='text-xl font-semibold'>Zoom</label>
+                                <div className='flex flex-row items-center gap-2 w-full pb-4'>   
                                     <FaMinus />
                                     <Slider 
                                     defaultValue={[1]} 
@@ -209,13 +210,25 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                                     <FaPlus />
                                 </div>
                                 
-                            </div>                            
+                            </div>  
+                                <div className='w-full flex flex-row gap-4 justify-center items-center'>
+                                <Button variant={'outline'} type='button' onClick={toggleModal} className='w-20'>
+                                    Cancel
+                                </Button>
+                                {
+                                !!imgSrc && 
+                                <Button type='button' onClick={onDownloadCropClick} className='w-20'>
+                                    Save
+                                </Button>
+                                }
+                                </div>                          
                         {/* <div>
                             <button onClick={handleToggleAspectClick}>
                                 Toggle aspect {aspect ? 'off' : 'on'}
                             </button>
                         </div> */}
                         </div>
+                        <div className='px-2'>
                         {!!imgSrc && (
                             <ReactCrop
                             crop={crop}
@@ -224,7 +237,7 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                             aspect={aspect}
                             // minWidth={400}
                             minHeight={100}
-                            // circularCrop
+                            // circularCrop                            
                             >
                             <img
                                 ref={imgRef}
@@ -235,6 +248,7 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                             />
                             </ReactCrop>
                         )}
+                        </div>
                         {!!completedCrop && (
                             <>
                             <div>
@@ -269,18 +283,7 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                                 
                         </div>
                         </>
-                    )}
-                    <div className='flex flex-row gap-4'>
-                        <Button variant={'outline'} type='button' onClick={toggleModal}>
-                            Cancel
-                        </Button>
-                        {
-                        !!imgSrc && 
-                        <Button type='button' onClick={onDownloadCropClick}>
-                            Save
-                        </Button>
-                        }
-                    </div>
+                    )}                    
                     
                 </div>
                 </div>

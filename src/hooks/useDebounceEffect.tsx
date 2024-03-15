@@ -5,9 +5,11 @@ export function useDebounceEffect(
   waitTime: number,
   deps?: DependencyList,
 ) {
+  const dependency  = deps ? deps: [] as const as any
+
   useEffect(() => {
     const t = setTimeout(() => {
-      fn.apply(undefined, deps)
+      fn.apply(undefined, dependency)
     }, waitTime)
 
     return () => {
