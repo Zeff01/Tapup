@@ -5,7 +5,7 @@ export default function Root() {
     const location = useLocation()
     
     return (
-        <div className="w-full overflow-x-hidden">
+        <div className="w-full overflow-x-hidden layout-rout">
             {
                 !location.pathname.includes('/edit') && // temporary
                 <Navbar />

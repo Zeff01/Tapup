@@ -1,4 +1,3 @@
-import { Input } from "../ui/input";
 import { SlPicture } from "react-icons/sl";
 
 import {
@@ -7,37 +6,19 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { useCustomCard } from "@/hooks/useCustomCard";
-import { ChangeEvent } from "react";
+import { useState } from "react";
 import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
-
+import Cropper from "./Cropper";
+import { useCustomCard } from "@/hooks/useCustomCard";
 
 
 // TODO: complete this
 export default function CoverAccordion() {
-    const changeCover = useCustomCard(s => s.changeCover)
     const hoverHandler = elementOutlineHandler('c-cover', 2)
+    const [fileName, setFileName] = useState('')
+    const changeCover = useCustomCard(s => s.changeCover)
 
-    function changeCoverHandler(e: ChangeEvent<HTMLInputElement>) {
-        const val : FileList|null = e.currentTarget.files
-        if (val) {
-            const file = val[0]
-            if (file && file.size > 5_000_000) {
-                console.error('file too large!')
-            }
-            if (file) {
-                console.log(file.type)
-                const reader =  new FileReader()
-                reader.onload = event => {
-                    const fileAsDataURL = event.target?.result
-                    if (typeof fileAsDataURL === 'string') {
-                        changeCover(fileAsDataURL)
-                    }
-                }
-                reader.readAsDataURL(file)
-            }
-        }    
-    }
+    const clippedFilename = fileName.length > 12 ? fileName.substring(0,9) + "..." : fileName
 
     return (
         <Accordion type="single" collapsible>
@@ -55,13 +36,19 @@ export default function CoverAccordion() {
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
                     <label className="relative w-full h-full">
-                    <p  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Choose File</p>
-                    <Input
+                    <p  className="text-[12px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{fileName ? clippedFilename : 'Choose File'}</p>
+                    {/* <Input
                     type="file"
                     accept="image/png, image/jpeg"                    
                     onChange={changeCoverHandler}
                     className="invisible"
+                    /> */}
+                    <Cropper 
+                    setFileName={setFileName} 
+                    aspect={16/6} 
+                    changeImage={changeCover} 
                     />
+
                     </label>
                 </AccordionContent>
             </AccordionItem>

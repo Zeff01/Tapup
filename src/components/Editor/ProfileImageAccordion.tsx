@@ -1,6 +1,4 @@
-import { Input } from "../ui/input";
 import { CgProfile } from "react-icons/cg";
-import { ChangeEvent } from "react";
 
 import {
     Accordion,
@@ -8,36 +6,20 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { useCustomCard } from "@/hooks/useCustomCard";
 import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
+import { useState } from "react";
+import Cropper from "./Cropper";
+import { useCustomCard } from "@/hooks/useCustomCard";
 
 // TODO: complete this
 export default function ProfileImageAccordion() {
-    
-    const changeProfile = useCustomCard(s => s.changeProfile)
+
+    const [fileName, setFileName] = useState('')
+
+    const clippedFilename = fileName.length > 12 ? fileName.substring(0,9) + "..." : fileName
+    const changeProfile = useCustomCard(s  => s.changeProfile)
     const hoverHandler = elementOutlineHandler('c-profile')
     
-
-    function changeProfileHandler(e: ChangeEvent<HTMLInputElement>) {
-        const val : FileList|null = e.currentTarget.files
-        if (val) {
-            const file = val[0]
-            if (file && file.size > 5_000_000) {
-                console.error('file too large!')
-            }
-            if (file) {
-                console.log(file.type)
-                const reader =  new FileReader()
-                reader.onload = event => {
-                    const fileAsDataURL = event.target?.result
-                    if (typeof fileAsDataURL === 'string') {
-                        changeProfile(fileAsDataURL)
-                    }
-                }
-                reader.readAsDataURL(file)
-            }
-        }    
-    }
 
     return (
         <Accordion type="single" collapsible>
@@ -55,12 +37,17 @@ export default function ProfileImageAccordion() {
                 </AccordionTrigger>
                 <AccordionContent className="border rounded-md border-t-transparent p-1">
                     <label className="relative w-full h-full">
-                        <p  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Choose File</p>
-                        <Input 
+                        <p  className="text-[12px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{fileName ? clippedFilename : 'Choose File'}</p>
+                        {/* <Input 
                         type="file"
                         accept="image/png, image/jpeg, image/svg"                    
                         onChange={changeProfileHandler}
                         className="invisible"
+                        /> */}
+                        <Cropper 
+                        setFileName={setFileName} 
+                        aspect={1/1}  
+                        changeImage={changeProfile}
                         />
                     </label>
                 </AccordionContent>

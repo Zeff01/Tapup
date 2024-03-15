@@ -16,20 +16,26 @@ export  default function CustomisableCard() {
     const iconColor = useCustomCard(s =>  s.iconColor)
     const iconBackground = useCustomCard(s =>  s.iconBackground)
 
-    const background =  coverURL ? '' : 'bg-gray-200'
-    const profile = profileURL ? '' : 'bg-blue-300'
-
     return (
         <div className={`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl`}>  
             {/* cover */}
-            <div className={`c-cover ${background} flex-grow`} style={coverURL? {background: `url("${coverURL}")`, backgroundSize:'cover'}: {}}></div>
+            <div className={`c-cover bg-gray-200 flex-grow`}>
+                {
+                    coverURL &&
+                    <img src={coverURL} width={'100%'} height={'100%'} />
+                }
+            </div>
             {/* details */}
             <div className="c-background h-[40%] px-8 flex flex-row justify-between" style={{backgroundColor}}>
                 {/* left side */}
                 <div className="relative pl-8">
                 {/* profile pic */}
-                    <div className="c-profile absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white rounded-full overflow-hidden">
-                        <div className={` w-full h-full ${profile}`} style={profileURL? {background: `url("${profileURL}")`, backgroundSize:'cover'}: {}}></div>
+                    <div className="c-profile absolute -translate-y-1/2 h-[150px] aspect-square border-4 border-white bg-blue-300 rounded-full overflow-hidden">
+                        {/* <div className={` w-full h-full ${profile}`} style={profileURL? {background: `url("${profileURL}")`, backgroundSize:'cover'}: {}}></div> */}
+                        {
+                        profileURL &&
+                        <img src={profileURL} width={'100%'} height={'100%'} />
+                        }
                     </div>
                     <div className='pt-[75px]'>
                     {/* infos */}

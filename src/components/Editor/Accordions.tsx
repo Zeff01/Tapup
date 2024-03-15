@@ -47,6 +47,7 @@ export default function Accordions() {
             <IconBackgroundAccordion />
             <br />
             
+            
         </section>
     )
 }
