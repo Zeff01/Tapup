@@ -3,6 +3,7 @@ import { Slider } from "@/components/ui/slider"
 import { createPortal } from 'react-dom'
 import { Input } from '@/components/ui/input'
 import { FaPlus, FaMinus } from "react-icons/fa6";
+import { AnimatePresence, motion } from 'framer-motion'
 
 import ReactCrop, {
   centerCrop,
@@ -40,7 +41,17 @@ function centerAspectCrop(
   )
 }
 
-export default function Cropper({setFileName, aspect, changeImage}:{setFileName: Dispatch<SetStateAction<string>>; aspect:number; changeImage(img:string):void }) {
+type CropperProps = {
+    setFileName: Dispatch<SetStateAction<string>>; 
+    aspect:number; 
+    changeImage(img:string):void;
+    maxHeight?: number;
+    circularCrop?: boolean;
+}
+
+
+
+export default function Cropper({setFileName, aspect, changeImage, maxHeight, circularCrop=false}:CropperProps) {
 
   const [imgSrc, setImgSrc] = useState('')
   const previewCanvasRef = useRef<HTMLCanvasElement>(null)
@@ -180,15 +191,25 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
 
   return (
     <div className="cropper">
-        <Input type="file" accept="image/*" onChange={onSelectFile} className='invisible'        
+        <Input type="file" accept="image/*" onChange={onSelectFile} className='invisible'
         onClick={toggleModal}
         />
 
 
         {
-            showModal && createPortal(
+            createPortal(
                 <>
-                <div className='z-10 fixed top-0 right-0 w-screen h-screen'>
+                <AnimatePresence>
+
+                {
+                showModal &&
+                <motion.div 
+                className='z-10 fixed top-0 right-0 w-screen h-screen'
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                exit={{opacity:0}}
+                transition={{duration:0.2}}
+                >
                     <div className='z-20 w-full h-full bg-black opacity-80' />
                     <div className='z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-full bg-white flex flex-col items-center gap-y-8 overflow-y-scroll  justify-between'>
                         <div className="pt-8 w-full flex flex-col items-center">
@@ -211,7 +232,7 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                                 </div>
                                 
                             </div>  
-                                <div className='w-full flex flex-row gap-4 justify-center items-center'>
+                                <div className='w-full flex flex-row gap-6 justify-center items-center'>
                                 <Button variant={'outline'} type='button' onClick={toggleModal} className='w-20'>
                                     Cancel
                                 </Button>
@@ -237,7 +258,8 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                             aspect={aspect}
                             // minWidth={400}
                             minHeight={100}
-                            // circularCrop                            
+                            maxHeight={maxHeight}
+                            circularCrop={circularCrop}
                             >
                             <img
                                 ref={imgRef}
@@ -286,7 +308,9 @@ export default function Cropper({setFileName, aspect, changeImage}:{setFileName:
                     )}                    
                     
                 </div>
-                </div>
+                </motion.div>
+                }
+                </AnimatePresence>
                 </>,
                 document.body
             )

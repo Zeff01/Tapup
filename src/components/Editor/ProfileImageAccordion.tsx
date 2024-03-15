@@ -48,6 +48,7 @@ export default function ProfileImageAccordion() {
                         setFileName={setFileName} 
                         aspect={1/1}  
                         changeImage={changeProfile}
+                        circularCrop={true}
                         />
                     </label>
                 </AccordionContent>
