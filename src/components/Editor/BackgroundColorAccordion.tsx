@@ -31,12 +31,16 @@ export default function BackgroundColorAccordion() {
                     </p>
                     
                 </AccordionTrigger>
-                <AccordionContent className="border rounded-md border-t-transparent p-1 flex flex-col gap-1 items-center">
+                <AccordionContent className="border rounded-md border-t-transparent px-1 flex flex-col gap-1 items-center">
+                        <div className="relative">
+                            <div className="w-full h-full absolute top-0 left-0 pointer-events-none" style={{background:backgroundColor}}>
+                            </div>
                         <Input 
-                        type="color" value={backgroundColor} 
+                        type="color"
                         onChange={(e) => changeBackgroundColor(e.currentTarget.value)}                    
-                        className="py-0 px-16 pt-1"
+                        className="py-0 px-16 pt-1 opacity-0"
                         />
+                        </div>
                         <AdvancedColor />
                 </AccordionContent>
             </AccordionItem>
