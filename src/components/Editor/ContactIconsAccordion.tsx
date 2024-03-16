@@ -43,7 +43,7 @@ export default function ContactIconsAccordions() {
                         <span className="text-[#b4b4b4]">
                             <RiContactsBookLine />
                         </span>
-                        <span className="text-sm">Contact Infos</span>
+                        <span className="text-sm">Socials</span>
                     </p>
                     
                 </AccordionTrigger>

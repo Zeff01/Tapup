@@ -4,7 +4,9 @@ import { SocialLists } from "@/lib/SOCIAL_ICONS"
 
 export  default function CustomisableCard() {
     const customFont = useCustomCard(s => s.customFont)
-    const name = useCustomCard(s => s.name)
+    const firstName = useCustomCard(s => s.firstName)
+    const middleName = useCustomCard(s => s.middleName)
+    const lastName = useCustomCard(s => s.lastName)
     const position = useCustomCard(s => s.position)
     const company = useCustomCard(s => s.company)
     const address = useCustomCard(s => s.address)
@@ -26,7 +28,7 @@ export  default function CustomisableCard() {
                 }
             </div>
             {/* details */}
-            <div className="c-background h-[40%] px-8 flex flex-row justify-between" style={{backgroundColor}}>
+            <div className="c-background h-[40%] px-8 flex flex-row justify-between" style={{background: backgroundColor}}>
                 {/* left side */}
                 <div className="relative pl-8">
                 {/* profile pic */}
@@ -41,11 +43,13 @@ export  default function CustomisableCard() {
                     {/* infos */}
                     <div className="max-w-[400px] c-text-color c-font">
                         {/* name */}
-                        <p className={`c-name  font-bold text-2xl ${customFont}`} style={{color: fontColor}}>{name}</p>
+                        <p className={`c-name  font-bold text-2xl ${customFont}`} style={{color: fontColor}}>
+                            {`${firstName} ${middleName} ${lastName}`}
+                        </p>
                         {/* position */}
-                        <p className={`c-position  font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
+                        <p className={`c-position text-sm  font-[500] ${customFont}`} style={{color: fontColor}}>{position}</p> 
                         {/* company */}
-                        <p className={`c-company  ${customFont}`} style={{color: fontColor}}>{company}</p>
+                        <p className={`c-company text-sm  ${customFont}`} style={{color: fontColor}}>{company}</p>
                         {/* address */}
                         <p className={`c-address  ${customFont} text-sm`} style={{color: fontColor}}>{address}</p>
                     </div>

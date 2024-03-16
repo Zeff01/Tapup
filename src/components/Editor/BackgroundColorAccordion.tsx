@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion"
 import { useCustomCard } from "@/hooks/useCustomCard";
 import { elementOutlineHandler } from "@/lib/elementOutlineHandler";
+import AdvancedColor from "./AdvancedColor";
 
 export default function BackgroundColorAccordion() {
     
@@ -30,12 +31,13 @@ export default function BackgroundColorAccordion() {
                     </p>
                     
                 </AccordionTrigger>
-                <AccordionContent className="border rounded-md border-t-transparent p-1">
+                <AccordionContent className="border rounded-md border-t-transparent p-1 flex flex-col gap-1 items-center">
                         <Input 
                         type="color" value={backgroundColor} 
                         onChange={(e) => changeBackgroundColor(e.currentTarget.value)}                    
                         className="py-0 px-16 pt-1"
                         />
+                        <AdvancedColor />
                 </AccordionContent>
             </AccordionItem>
         </Accordion>

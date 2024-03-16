@@ -2,6 +2,8 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Root from "./pages/Root"
 import FrontPage from "./pages/FrontPage"
 import TempEdit from "./pages/TempEdit" // temporary page
+import Profile from "./pages/Profile"
+import Services from "./pages/Services"
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -9,6 +11,8 @@ const router = createBrowserRouter(
             {/* place your routes here so the navbar will be visible */}
             <Route path="" element={<FrontPage />} />
             <Route path="edit" element={<TempEdit />} />
+            <Route path="profile/:id" element={<Profile />} />
+            <Route path="services" element={<Services />} />
         </Route>
     )
 )

@@ -22,7 +22,9 @@ type State = {
     customFont: CustomFont;
     fontColor: string;
     backgroundColor: string;
-    name: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
     position: string;
     company: string;
     socials: Social[];
@@ -37,7 +39,9 @@ type Action = {
     changeCustomFont(newFont:CustomFont) : void;
     changeFontColor(newColor: string) : void;
     changeBackgroundColor(newColor:string) : void;
-    changeName(newName: string) : void;
+    changeFirstName(newName: string) : void;
+    changeLastName(newName: string) : void;
+    changeMiddleName(newName: string) : void;
     changePosition(newPosition: string) :   void;
     changeCompany(newCompany: string) :   void;
     addSocial(socialType:string, socialValue:string) : void;
@@ -54,7 +58,9 @@ const INITIAL_VALUES = {
     font: 'font-roboto-condensed', // TODO: adjust this
     fontColor: '#000000',
     backgroundColor: '#ffffff',
-    name: 'Tony Stark',
+    firstName: 'Tony',
+    middleName: '',
+    lastName: 'Stark',
     position: 'CEO',
     company: 'Stark Industries',
     coverURL: '',
@@ -69,7 +75,9 @@ export const useCustomCard = create<State & Action>((set) => ({
     customFont: INITIAL_VALUES.font,
     fontColor: INITIAL_VALUES.fontColor,
     backgroundColor: INITIAL_VALUES.backgroundColor,
-    name: INITIAL_VALUES.name,
+    firstName: INITIAL_VALUES.firstName,
+    middleName: INITIAL_VALUES.middleName,
+    lastName: INITIAL_VALUES.lastName,
     position: INITIAL_VALUES.position,
     company: INITIAL_VALUES.company,
     socials: [],
@@ -79,7 +87,9 @@ export const useCustomCard = create<State & Action>((set) => ({
     iconColor: INITIAL_VALUES.iconColor,
     iconBackground: INITIAL_VALUES.iconBackground,
 
-    changeName: (newName: string) => set(() => ({name: newName})),
+    changeFirstName: (newName: string) => set(() => ({firstName: newName})),
+    changeMiddleName: (newName: string) => set(() => ({middleName: newName})),
+    changeLastName: (newName: string) => set(() => ({lastName: newName})),
     changeFontColor: (newColor: string) => set(() => ({fontColor:newColor})),
     changeBackgroundColor: (newColor: string) => set(() => ({backgroundColor:newColor})),
     changeCustomFont: (newFont:CustomFont) => set(() => ({customFont: newFont})),
