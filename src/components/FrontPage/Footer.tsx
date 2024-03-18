@@ -4,7 +4,6 @@ import { SiInstagram } from "react-icons/si";
 
 
 export default function Footer() {
-    const style = {background: 'url("./oval.svg")', backgroundSize:'cover'}
     
     return (
         <footer className="w-screen relative flex flex-col  items-center">
