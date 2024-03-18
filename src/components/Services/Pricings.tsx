@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 export default function Pricings() {
     return (
-        <section className="py-6 flex flex-row items-center justify-center gap-4">
+        <section className="py-6 flex flex-row items-center justify-center flex-wrap gap-8 sm:gap-4">
             {/* Essential */}
             <div className="w-[370px] flex flex-col items-center gap-y-4 shadow-2xl py-6 px-8">
                 <h2 className="font-semibold text-2xl">
@@ -54,7 +54,7 @@ export default function Pricings() {
                     <p className="text-center">Priority Support and Consultation for Portfolio Setup</p>
                     <p className="text-center">Maximum Cloud Storage Capacity</p>
                 </div>
-                <Button className="rounded-2xl w-[180px] font-bold">
+                <Button className="rounded-2xl w-[180px] font-bold bg-customGreen text-customBlack">
                     CHOOSE THE PLAN
                 </Button>
                 <div className="w-full flex flex-col gap-y-2 pt-2">
