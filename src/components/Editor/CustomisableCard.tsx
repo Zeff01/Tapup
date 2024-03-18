@@ -1,8 +1,9 @@
 import './customCardStyles.css'
 import { useCustomCard } from "@/hooks/useCustomCard"
 import { SocialLists } from "@/lib/SOCIAL_ICONS"
+import { cn } from '@/lib/utils';
 
-export  default function CustomisableCard() {
+export  default function CustomisableCard({className}: {className?: string;}) {
     const customFont = useCustomCard(s => s.customFont)
     const firstName = useCustomCard(s => s.firstName)
     const middleName = useCustomCard(s => s.middleName)
@@ -19,7 +20,7 @@ export  default function CustomisableCard() {
     const iconBackground = useCustomCard(s =>  s.iconBackground)
 
     return (
-        <div className={`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl`}>  
+        <div className={cn(`w-[800px] h-[500px] shadow-lg flex flex-col rounded-xl`, className)}>  
             {/* cover */}
             <div className={`c-cover bg-gray-200 flex-grow`}>
                 {

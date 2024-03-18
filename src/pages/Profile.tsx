@@ -1,23 +1,24 @@
+"use client"
+import CustomisableCard from "@/components/Editor/CustomisableCard"
+import Appointment from "@/components/Profile/Appointment"
+import Services from "@/components/Profile/Services"
+import Testimonials from "@/components/Profile/Testimonials"
+import BusinessHours from "@/components/Profile/BusinessHours"
+import ContactInfo from "@/components/Profile/ContactInfo"
 
 export default function Profile() {
     return (
-        <div className="flex flex-row w-screen h-screen">
-            {/* <div className="basis-1/2">
+        <div className="flex flex-col items-center w-screen h-screen py-12">
+            <div className="shadow-xl">
+                <CustomisableCard className="shadow-none"/>
+                <hr className="w-full border-b border-b-gray-200" />
+                <Appointment />
+                <Services />
+                <hr className="w-full border-b border-b-gray-200" />
+                <Testimonials />
+                <BusinessHours />
+                <ContactInfo />
             </div>
-            <div className="basis-1/2">
-
-            <iframe 
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fweb.facebook.com%2FBitPinas&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-            width="500" 
-            height="500"  
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true" 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            >
-
-            </iframe>
-            </div> */}
         </div>
     )
 }

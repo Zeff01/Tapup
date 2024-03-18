@@ -72,7 +72,7 @@
   }
   * {
     box-sizing: border-box;
-    font-family: "Roboto Mono", monospace, sans-serif;    
+    font-family: "Roboto Condensed", monospace, sans-serif;    
   }  
   body {
     @apply bg-background text-foreground;
