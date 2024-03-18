@@ -33,7 +33,7 @@ const CUSTOM_CARDS = [
 
 export default function CustomCardBanner() {
     return (
-        <section className="flex flex-col items-center relative py-[100px]">
+        <section className="flex flex-col items-center relative py-[100px] px-4">
             <div 
             style={{background:'url("./custom-banner.svg")', backgroundSize:'cover'}}
             className="h-[400px] w-screen absolute -translate-y-[100px]"
@@ -49,7 +49,7 @@ export default function CustomCardBanner() {
                     <h3 className="font-[700] text-5xl">Custom Made Card</h3>
                     <p className="text-customTextGray w-full max-w-[400px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
-                <div className="flex flex-row gap-x-6 py-6">
+                <div className="flex flex-row gap-x-6 py-6 justify-center flex-wrap">
                     {CUSTOM_CARDS.map((c, i) => {
                         return (
                             <CustomCards key={i} {...c} />
